@@ -1,0 +1,31 @@
+page-login{
+    ion-list{
+        background: url(https://www.fortunefoods.com/ricefullyyours/ee/blogimages/fortune_mutton_biriyani_7981-2_new.jpg),linear-gradient(60deg,#050a14 0,#062456 100%);       
+        height: 100%;
+        padding: 50% 10px;
+        .loginItem{
+            background: transparent;
+            button.button-block{
+                height: 48px;
+                font-size: 16px;
+            }
+        }
+        ion-item{
+            border: 0 !important;
+            *{
+                border: 0 !important;
+            }
+        }
+        h1,.item-ios{
+            background: transparent;
+            text-shadow: 0 0 12px #000000;
+            color: white;
+        }
+        .field{
+            background: rgba(8, 8, 8, 0.34902);
+            ion-label, ion-input{
+                color: white !important;
+            }
+        }
+    }
+}
