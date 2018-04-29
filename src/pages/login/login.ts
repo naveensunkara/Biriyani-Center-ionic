@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { LandingPage } from '../landing/landing';
 
 @Component({
     selector: 'page-login',
-    templateUrl: 'login.html'
+    templateUrl: 'login.html',
+    entryComponents:[ LandingPage ]
   })
 export class LoginPage{
-    constructor(private viewCtrl: ViewController){}
+    constructor(public navCtrl: NavController){}
     login(){
-        this.viewCtrl.dismiss();
-        window.location.href = '';
+        console.log(32432)
+        this.navCtrl.push(LandingPage);
     }
 }

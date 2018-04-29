@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ModalController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
@@ -7,16 +7,11 @@ import { LoginPage } from '../login/login';
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage implements OnInit {
+export class HomePage {
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
-
-  }
-  ngOnInit(){
     let modal = this.modalCtrl.create(LoginPage);    
-    setTimeout(() => {
-      modal.present();
-    }, 1000)
+    modal.present();
   }
 
 }
