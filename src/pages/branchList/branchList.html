@@ -1,0 +1,3 @@
+<ion-list class="listBranch">
+    <ion-item *ngFor="let list of branches; index as i" [innerHTML]="list.content" padding-left padding-right (click)="showModal()"></ion-item>
+</ion-list>

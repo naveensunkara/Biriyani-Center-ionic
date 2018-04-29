@@ -1,0 +1,17 @@
+chat-page{
+    ion-content{
+        .textbar[no-margin]{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            input{
+                padding-right: 46px;
+            }
+        }
+        .chat_send{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    }
+}

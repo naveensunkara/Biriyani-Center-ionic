@@ -1,0 +1,9 @@
+ion-list.listBranch{
+    background: white;
+    height: 100%;
+    overflow: auto;
+    ion-item[padding-right]{
+        height: 50px;
+        border: 1px solid #ccc;
+    }
+}

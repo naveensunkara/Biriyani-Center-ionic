@@ -4,13 +4,14 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Geolocation } from '@ionic-native/geolocation';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { LandingPage } from '../pages/landing/landing';
 import { PickupPage } from '../pages/pickup/pickup';
 import { ChatPage } from '../pages/chat/chat';
-//import { BranchList } from '../pages/branchList/branchList';
+import { BranchList } from '../pages/branchList/branchList';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ChatPage } from '../pages/chat/chat';
     LoginPage,
     LandingPage,
     PickupPage,
-    ChatPage
+    ChatPage,
+    BranchList
   ],
   imports: [
     BrowserModule,
@@ -32,11 +34,13 @@ import { ChatPage } from '../pages/chat/chat';
     LoginPage,
     LandingPage,
     PickupPage,
-    ChatPage
+    ChatPage,
+    BranchList
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    ScreenOrientation,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

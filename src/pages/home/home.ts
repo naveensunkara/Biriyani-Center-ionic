@@ -10,8 +10,8 @@ import { LoginPage } from '../login/login';
 export class HomePage {
 
   constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
-    let modal = this.modalCtrl.create(LoginPage);    
-    modal.present();
+    setTimeout(()=>{this.modal.present();},1000)       
   }
+  modal: any = this.modalCtrl.create(LoginPage); 
 
 }
