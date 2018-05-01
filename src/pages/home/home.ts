@@ -9,7 +9,11 @@ import { LoginPage } from '../login/login';
 export class HomePage {
 
   constructor(public navCtrl: NavController) {
-    setTimeout(()=>{navCtrl.push(LoginPage);},1000)       
+    this.login();   
+  }
+
+  login(){
+    setTimeout(()=>{this.navCtrl.push(LoginPage);},1000)
   }
 
 }

@@ -12,7 +12,7 @@ import { LandingPage } from '../pages/landing/landing';
 import { PickupPage } from '../pages/pickup/pickup';
 import { ChatPage } from '../pages/chat/chat';
 import { BranchList } from '../pages/branchList/branchList';
-
+import { TabPage } from '../pages/tab/tab';
 @NgModule({
   declarations: [
     MyApp,
@@ -21,7 +21,8 @@ import { BranchList } from '../pages/branchList/branchList';
     LandingPage,
     PickupPage,
     ChatPage,
-    BranchList
+    BranchList,
+    TabPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,8 @@ import { BranchList } from '../pages/branchList/branchList';
     LandingPage,
     PickupPage,
     ChatPage,
-    BranchList
+    BranchList,
+    TabPage
   ],
   providers: [
     StatusBar,

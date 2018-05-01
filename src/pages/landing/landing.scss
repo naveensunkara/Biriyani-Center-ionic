@@ -5,9 +5,12 @@ page-landing{
         background: transparent; 
         ion-card{
             background: rgba(253, 253, 253, 0.79);
+            position: relative;
+            height: 45%;
             img{
                 max-width: 250px;
                 margin: auto;
+                max-height: 85%;
             }
         }
     }

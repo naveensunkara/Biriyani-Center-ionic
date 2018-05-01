@@ -52,8 +52,12 @@ $colors: (
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
-
+$searchbar-md-input-background-color: rgba(0, 0, 0, 0.14);
+$searchbar-md-input-search-icon-color: color($colors, light, base);
+$searchbar-md-input-box-shadow: none;
+$searchbar-md-input-text-color: color($colors, light, base); 
+$searchbar-md-input-clear-icon-color: color($colors, light, base);
+$searchbar-md-input-placeholder-color: color($colors, light, base);
 
 
 // App Windows Variables
@@ -86,3 +90,4 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+

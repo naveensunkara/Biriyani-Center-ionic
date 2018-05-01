@@ -1,6 +1,24 @@
-<ion-content no-padding>
+<ion-menu [content]="content">
+    <ion-content>
+        <ion-list>
+            <button ion-item (click)="openPage(homePage)">
+                Logout
+            </button>
+            <button ion-item (click)="closeMenu()">
+                Close Menu
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-content no-padding #content>
+    <ion-header>
+        <ion-toolbar  color="primary">
+            <button ion-button icon-only menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+            <ion-searchbar id="storeLocator" #place (ionInput)="onInput($event)"></ion-searchbar>
+        </ion-toolbar>
+    </ion-header>
     <div #map id="map"></div>
-    <button ion-button block (click)="branchList()" class="branchList">List of Branches</button>
+    <button ion-button block (click)="branchList()" class="branchList" icon-start><ion-icon name="md-arrow-dropup-circle"></ion-icon>List of Branches</button>
 </ion-content>
-
-<branchList-page></branchList-page>

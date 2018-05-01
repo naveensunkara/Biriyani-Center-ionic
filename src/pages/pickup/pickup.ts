@@ -12,6 +12,7 @@ declare var google;
 export class PickupPage {
 
   @ViewChild('map') mapElement: ElementRef;
+  @ViewChild('place') search: ElementRef;
   map: any;
   latLng: any;
   marker: any;
@@ -21,41 +22,41 @@ export class PickupPage {
   isKM: any = 10000;
   isType: any = "";
 
-  constructor(public navCtrl: NavController, public geolocation: Geolocation, private ngZone: NgZone, public modalCtrl: ModalController) { }
+  constructor(public navCtrl: NavController, public geolocation: Geolocation, private ngZone: NgZone, public modalCtrl: ModalController) {
+  }
 
   ionViewDidLoad() {
     this.loadMap();
   }
 
+  onInput(event){
+    console.log(this.search.nativeElement)
+    this.search = event.target;
+  }
   loadMap() {
-    this.latLng = new google.maps.LatLng(13.082680199999999, 80.2707184);
-    this.mapOptions = {
-      center: this.latLng,
-      zoom: 13,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
-    this.marker = new google.maps.Marker({
-      map: this.map,
-      animation: google.maps.Animation.DROP,
-      position: this.map.getCenter()
-    });
-    let infowindow = new google.maps.InfoWindow();
-    infowindow.setContent("You are here");
-    infowindow.open(this.map, this.marker);
-
-    this.nearbyPlace();
-    // this.geolocation.getCurrentPosition().then((position) => {
-    //   this.latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    //   this.mapOptions = {
-    //     center: this.latLng,
-    //     zoom: 13,
-    //     mapTypeId: google.maps.MapTypeId.ROADMAP
-    //   }
-    //   this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
-    // }, (err) => {
-    //   console.log(err)
-    // })
+    //this.latLng = new google.maps.LatLng(13.082680199999999, 80.2707184);
+    // let searchBox = new google.maps.places.SearchBox(this.search);
+    // console.log(searchBox);
+    this.geolocation.getCurrentPosition().then((position) => {
+      this.latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      this.mapOptions = {
+        center: this.latLng,
+        zoom: 13,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
+      this.marker = new google.maps.Marker({
+        map: this.map,
+        animation: google.maps.Animation.DROP,
+        position: this.map.getCenter()
+      });
+      let infowindow = new google.maps.InfoWindow();
+      infowindow.setContent("You are here");
+      infowindow.open(this.map, this.marker);
+      this.nearbyPlace();
+    }, (err) => {
+      console.log(err)
+    })
   }
 
   nearbyPlace() {
@@ -90,7 +91,6 @@ export class PickupPage {
       content: '<h3>' + place.name + '</h3><p>Click to chat</p>'
     });
     this.infowindow.push(infowindow);
-    console.log(infowindow);
     google.maps.event.addListener(marker, 'click', () => {
       for (var j = 0; j < this.infowindow.length; j++) {
         this.infowindow[j].close();
