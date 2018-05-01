@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavParams, ModalController, Modal } from 'ionic-angular';
+import { NavParams, ModalController } from 'ionic-angular';
 import { ChatPage } from '../chat/chat';
 @Component({
     selector: 'branchList-page',

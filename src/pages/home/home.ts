@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ModalController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 
 @Component({
@@ -9,9 +8,8 @@ import { LoginPage } from '../login/login';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
-    setTimeout(()=>{this.modal.present();},1000)       
+  constructor(public navCtrl: NavController) {
+    setTimeout(()=>{navCtrl.push(LoginPage);},1000)       
   }
-  modal: any = this.modalCtrl.create(LoginPage); 
 
 }
