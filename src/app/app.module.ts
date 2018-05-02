@@ -13,6 +13,7 @@ import { PickupPage } from '../pages/pickup/pickup';
 import { ChatPage } from '../pages/chat/chat';
 import { BranchList } from '../pages/branchList/branchList';
 import { TabPage } from '../pages/tab/tab';
+import { HomeDeliveryPage } from '../pages/homeDelivery/homeDelivery';
 @NgModule({
   declarations: [
     MyApp,
@@ -22,7 +23,8 @@ import { TabPage } from '../pages/tab/tab';
     PickupPage,
     ChatPage,
     BranchList,
-    TabPage
+    TabPage,
+    HomeDeliveryPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { TabPage } from '../pages/tab/tab';
     PickupPage,
     ChatPage,
     BranchList,
-    TabPage
+    TabPage,
+    HomeDeliveryPage
   ],
   providers: [
     StatusBar,

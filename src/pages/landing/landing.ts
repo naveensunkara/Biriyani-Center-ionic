@@ -6,11 +6,9 @@ import { TabPage } from '../tab/tab';
     templateUrl: 'landing.html'
   })
 export class LandingPage{
-    page: any;
     constructor(public navCtrl: NavController){}
     
     tabView(page: any){
-        this.navCtrl.push(TabPage);
-        this.page = page;
+        this.navCtrl.push(TabPage,{'page': page});
     }
 }

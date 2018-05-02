@@ -15,44 +15,53 @@ export class PickupPage {
   @ViewChild('place') search: ElementRef;
   map: any;
   latLng: any;
-  marker: any;
-  mapOptions: any;
+  userLocation: any;
   infowindow: any = [];
-
+  markers: any = [];
   isKM: any = 10000;
   isType: any = "";
 
   constructor(public navCtrl: NavController, public geolocation: Geolocation, private ngZone: NgZone, public modalCtrl: ModalController) {
+
   }
 
   ionViewDidLoad() {
     this.loadMap();
   }
 
-  onInput(event){
-    console.log(this.search.nativeElement)
-    this.search = event.target;
+  onInput(event) {
+  }
+
+  onCancel(event) {
+    return false;
   }
   loadMap() {
     //this.latLng = new google.maps.LatLng(13.082680199999999, 80.2707184);
-    // let searchBox = new google.maps.places.SearchBox(this.search);
-    // console.log(searchBox);
     this.geolocation.getCurrentPosition().then((position) => {
-      this.latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      this.mapOptions = {
+      this.latLng = new google.maps.LatLng(13.0305609802915, 80.21023398029149);
+      let mapOptions = {
         center: this.latLng,
         zoom: 13,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
-      this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
-      this.marker = new google.maps.Marker({
+      this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+      let searchBox = new google.maps.places.SearchBox(this.search['_searchbarInput'].nativeElement);
+
+      this.map.addListener('bounds_changed', function (e) {
+        searchBox.setBounds(this.getBounds());
+      });
+      this.userLocation = new google.maps.Marker({
         map: this.map,
         animation: google.maps.Animation.DROP,
         position: this.map.getCenter()
       });
+      searchBox.addListener('places_changed', function () {
+        
+      });
+      
       let infowindow = new google.maps.InfoWindow();
       infowindow.setContent("You are here");
-      infowindow.open(this.map, this.marker);
+      infowindow.open(this.map, this.userLocation);
       this.nearbyPlace();
     }, (err) => {
       console.log(err)
@@ -60,7 +69,6 @@ export class PickupPage {
   }
 
   nearbyPlace() {
-
     let service = new google.maps.places.PlacesService(this.map);
     service.nearbySearch({
       location: this.latLng,
@@ -86,7 +94,7 @@ export class PickupPage {
       animation: google.maps.Animation.DROP,
       position: place.geometry.location
     });
-
+    this.markers.push(marker);
     let infowindow = new google.maps.InfoWindow({
       content: '<h3>' + place.name + '</h3><p>Click to chat</p>'
     });
@@ -102,6 +110,13 @@ export class PickupPage {
         this.showModal(place);
       }, 1000)
     });
+  }
+
+  clearMarkers() {
+    this.markers.forEach(function (marker) {
+      marker.setMap(null);
+    });
+    this.markers = [];
   }
 
   showModal(place) {

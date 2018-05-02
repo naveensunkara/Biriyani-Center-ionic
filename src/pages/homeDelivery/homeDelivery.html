@@ -10,15 +10,30 @@
         </ion-list>
     </ion-content>
 </ion-menu>
-<ion-content no-padding #content>
+<ion-content no-padding #content class="thumbnails" >
     <ion-header>
-        <ion-toolbar  color="primary">
+        <ion-toolbar color="primary">
             <button ion-button icon-only menuToggle>
                 <ion-icon name="menu"></ion-icon>
             </button>
             <ion-searchbar id="storeLocator" #place (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
         </ion-toolbar>
     </ion-header>
-    <div #map id="map"></div>
-    <button ion-button block (click)="branchList()" class="branchList" icon-start><ion-icon name="md-arrow-dropup-circle"></ion-icon>List of Branches</button>
+    <ion-card class="thumbnail-card" *ngFor="let item of menu">
+        <img src="assets/imgs/pickup.png" />
+        <ion-card-content>
+            <ion-card-title>
+                {{item.name}}
+            </ion-card-title>
+            <p>
+                Price: Rs. {{item.price}}
+            </p>
+            <p>
+                {{item.deliver}}
+            </p>
+            <button ion-button icon-only small>
+                <ion-icon name="md-add"></ion-icon>
+            </button>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
