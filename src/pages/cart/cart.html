@@ -23,5 +23,5 @@
             <h1 class="total" text-right>Rs. {{totalAmt}}</h1>
         </ion-item>
     </ion-list>
-    <button ion-button block no-margin class="proceedToPay">Proceed to Pay</button>
+    <button ion-button block no-margin class="proceedToPay" [navPush]="customerDetail">Place Order</button>
 </ion-content>

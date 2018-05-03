@@ -1,0 +1,20 @@
+<ion-list radio-group>
+    <ion-list-header>
+        Select Delivery Address
+    </ion-list-header>
+    <ion-item *ngFor="let address of addresses">
+        <ion-label>
+            <ion-card>
+                <ion-card-header>
+                    <h1>{{address.title}}</h1>
+                </ion-card-header>
+                <ion-card-content>
+                    <h2>{{address.street}}</h2>
+                    <h2>{{address.area}}</h2>
+                    <h2>{{address.city}}</h2>
+                </ion-card-content>
+            </ion-card>
+        </ion-label>
+        <ion-radio [checked]="address.selected" [value]="address.title"></ion-radio>
+    </ion-item>
+</ion-list>

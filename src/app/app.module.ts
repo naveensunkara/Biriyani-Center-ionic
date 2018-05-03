@@ -16,6 +16,7 @@ import { TabPage } from '../pages/tab/tab';
 import { HomeDeliveryPage } from '../pages/homeDelivery/homeDelivery';
 import { MenuCategoryPage } from '../pages/menuCategory/menuCategory';
 import { CartPage } from '../pages/cart/cart';
+import { CustomerPage } from '../pages/customer/customer';
 @NgModule({
   declarations: [
     MyApp,
@@ -28,7 +29,8 @@ import { CartPage } from '../pages/cart/cart';
     TabPage,
     HomeDeliveryPage,
     MenuCategoryPage,
-    CartPage
+    CartPage,
+    CustomerPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { CartPage } from '../pages/cart/cart';
     TabPage,
     HomeDeliveryPage,
     MenuCategoryPage,
-    CartPage
+    CartPage,
+    CustomerPage
   ],
   providers: [
     StatusBar,

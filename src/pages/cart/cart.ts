@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-
+import { CustomerPage } from '../customer/customer';
 @Component({
     selector: 'cart-page',
     templateUrl: 'cart.html'
 })
 
 export class CartPage{
+    customerDetail: any = CustomerPage;
     constructor(){
         this.total();
     }
