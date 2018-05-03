@@ -1,4 +1,4 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content" id="pickupMenu" persistent="true">
     <ion-content>
         <ion-list>
             <button ion-item (click)="openPage(homePage)">
@@ -13,7 +13,7 @@
 <ion-content no-padding #content>
     <ion-header>
         <ion-toolbar  color="primary">
-            <button ion-button icon-only menuToggle>
+            <button ion-button icon-only menuToggle="pickupMenu">
                 <ion-icon name="menu"></ion-icon>
             </button>
             <ion-searchbar id="storeLocator" #place (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>

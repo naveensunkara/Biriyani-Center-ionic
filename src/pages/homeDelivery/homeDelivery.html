@@ -1,11 +1,11 @@
-<ion-menu [content]="content">
+<ion-menu [content]="content" id="homeDeliveryMenu" persistent="true">
     <ion-content>
         <ion-list>
             <button ion-item (click)="openPage(homePage)">
                 Logout
             </button>
             <button ion-item (click)="closeMenu()">
-                Close Menu
+                CloseMenu
             </button>
         </ion-list>
     </ion-content>
@@ -13,10 +13,13 @@
 <ion-content no-padding #content class="thumbnails" >
     <ion-header>
         <ion-toolbar color="primary">
-            <button ion-button icon-only menuToggle>
+            <button ion-button icon-only menuToggle="homeDeliveryMenu">
                 <ion-icon name="menu"></ion-icon>
             </button>
             <ion-searchbar id="storeLocator" #place (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+            <button ion-button icon-only [navPush]="CartPage">
+                <ion-icon name="md-cart"></ion-icon>
+            </button>
         </ion-toolbar>
     </ion-header>
     <ion-card class="thumbnail-card" *ngFor="let item of menu">
@@ -31,9 +34,12 @@
             <p>
                 {{item.deliver}}
             </p>
-            <button ion-button icon-only small>
+            <button ion-button icon-only small (click)="toast()">
                 <ion-icon name="md-add"></ion-icon>
             </button>
         </ion-card-content>
     </ion-card>
+    <button ion-button icon-only round class="category" (click)="popUp($event)">
+        <ion-icon name="md-list"></ion-icon>
+    </button>
 </ion-content>

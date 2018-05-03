@@ -2,6 +2,14 @@
     .scroll-content{
         padding-top: 56px;
         background: #9E9E9E;
+        ion-toolbar{
+            .toolbar-content{
+                display: flex;
+                button{
+                    box-shadow: 0 0;
+                }
+            }
+        }
     }
     ion-card.thumbnail-card{
         display: inline-flex;
@@ -18,5 +26,10 @@
                 right: 10px;
             }
         }
+    }
+    button.category{
+        position: fixed;
+        bottom: 56px;
+        right: 10px;
     }
 }

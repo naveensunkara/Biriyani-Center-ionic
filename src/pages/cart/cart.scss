@@ -1,0 +1,13 @@
+ion-card.cart-card{
+    display: inline-flex;
+    position: relative;
+    height: 120px;
+    img{
+        width: 120px;
+    }
+    .price{
+        position: absolute;
+        right: 10px;
+        bottom: 0;
+    }
+}

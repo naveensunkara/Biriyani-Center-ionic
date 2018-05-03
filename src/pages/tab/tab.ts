@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import {NavParams,Tab, Tabs} from 'ionic-angular';
+import {NavParams, Tabs} from 'ionic-angular';
 import { PickupPage } from '../pickup/pickup';
 import { HomeDeliveryPage } from '../homeDelivery/homeDelivery';
 @Component({

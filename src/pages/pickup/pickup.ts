@@ -38,7 +38,7 @@ export class PickupPage {
   loadMap() {
     //this.latLng = new google.maps.LatLng(13.082680199999999, 80.2707184);
     this.geolocation.getCurrentPosition().then((position) => {
-      this.latLng = new google.maps.LatLng(13.0305609802915, 80.21023398029149);
+      this.latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       let mapOptions = {
         center: this.latLng,
         zoom: 13,

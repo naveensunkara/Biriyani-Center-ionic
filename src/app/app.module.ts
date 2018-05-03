@@ -14,6 +14,8 @@ import { ChatPage } from '../pages/chat/chat';
 import { BranchList } from '../pages/branchList/branchList';
 import { TabPage } from '../pages/tab/tab';
 import { HomeDeliveryPage } from '../pages/homeDelivery/homeDelivery';
+import { MenuCategoryPage } from '../pages/menuCategory/menuCategory';
+import { CartPage } from '../pages/cart/cart';
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +26,9 @@ import { HomeDeliveryPage } from '../pages/homeDelivery/homeDelivery';
     ChatPage,
     BranchList,
     TabPage,
-    HomeDeliveryPage
+    HomeDeliveryPage,
+    MenuCategoryPage,
+    CartPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,9 @@ import { HomeDeliveryPage } from '../pages/homeDelivery/homeDelivery';
     ChatPage,
     BranchList,
     TabPage,
-    HomeDeliveryPage
+    HomeDeliveryPage,
+    MenuCategoryPage,
+    CartPage
   ],
   providers: [
     StatusBar,
