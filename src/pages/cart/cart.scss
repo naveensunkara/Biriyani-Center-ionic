@@ -1,13 +1,32 @@
-ion-card.cart-card{
-    display: inline-flex;
-    position: relative;
-    height: 120px;
-    img{
-        width: 120px;
+.cartPage{
+    ion-card.cart-card{
+        display: inline-flex;
+        position: relative;
+        height: 120px;
+        img{
+            width: 120px;
+        }
+        .price{
+            position: absolute;
+            right: 10px;
+            bottom: 0;
+        }
     }
-    .price{
+    button.proceedToPay{
         position: absolute;
-        right: 10px;
         bottom: 0;
+        height: 56px;
+    }
+    .total-wrapper{
+        position: absolute;
+        bottom: 56px;
+        width: 100%;
+        ion-label{
+            display: flex;
+            margin: 0;
+            h1{
+                width: 50%;
+            }
+        }
     }
 }

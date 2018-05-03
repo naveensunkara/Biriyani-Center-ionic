@@ -1,34 +1,27 @@
-<ion-card class="cart-card">
-    <img src="assets/imgs/pickup.png" />
-    <ion-card-content>
-        <ion-card-title>
-            Chicken Biriyani
-        </ion-card-title>
-        <p class="price">
-            Rs. 180.00
-        </p>
-        <button ion-button icon-only small (click)="toast()">
-            <ion-icon name="md-remove"></ion-icon>
-        </button>
-        <button ion-button icon-only small (click)="toast()">
-            <ion-icon name="md-add"></ion-icon>
-        </button>
-    </ion-card-content>
-</ion-card>
-<ion-card class="cart-card">
-    <img src="assets/imgs/pickup.png" />
-    <ion-card-content>
-        <ion-card-title>
-            Mutton Biriyani
-        </ion-card-title>
-        <p class="price">
-            Rs. 250.00
-        </p>
-        <button ion-button icon-only small (click)="toast()">
-            <ion-icon name="md-remove"></ion-icon>
-        </button>
-        <button ion-button icon-only small (click)="toast()">
-            <ion-icon name="md-add"></ion-icon>
-        </button>
-    </ion-card-content>
-</ion-card>
+<ion-content class="cartPage">
+    <ion-card class="cart-card" *ngFor="let item of cartItems; index as i">
+        <img src="assets/imgs/pickup.png" />
+        <ion-card-content>
+            <ion-card-title>
+                {{item.title}}
+            </ion-card-title>
+            <p class="price">
+                Rs. {{item.totalPrice}}
+            </p>
+            <button ion-button icon-only small (click)="remove(i)">
+                <ion-icon name="md-remove"></ion-icon>
+            </button>
+            <button ion-button small color="light">{{item.quantity}}</button>
+            <button ion-button icon-only small (click)="add(i)">
+                <ion-icon name="md-add"></ion-icon>
+            </button>
+        </ion-card-content>
+    </ion-card>
+    <ion-list no-margin class="total-wrapper">
+        <ion-item padding-left padding-right>
+            <h1 class="label">Total</h1>
+            <h1 class="total" text-right>Rs. {{totalAmt}}</h1>
+        </ion-item>
+    </ion-list>
+    <button ion-button block no-margin class="proceedToPay">Proceed to Pay</button>
+</ion-content>
